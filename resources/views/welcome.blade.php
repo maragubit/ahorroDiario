@@ -36,7 +36,7 @@
                 </div>
             @endif
           <div>
-          <img src="../resources/img/ahorroDiario.jpg" alt="ahorroimg" style="max-width:600px"></img>
+          <img src="./img/ahorroDiario.jpg" alt="ahorroimg" style="max-width:600px"></img>
           </div>
         </div>
         
