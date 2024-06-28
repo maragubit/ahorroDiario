@@ -23,7 +23,7 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen dark:bg-gray-900 sm:items-center py-4 sm:pt-0" style="background-color: rgb(37 115 89);">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm  dark:text-gray-500 underline" style="color:white">Home</a>
                     @else
@@ -35,8 +35,9 @@
                     @endauth
                 </div>
             @endif
-          <div>
-          <img src="./img/ahorroDiario.jpg" alt="ahorroimg" style="max-width:600px"></img>
+          
+        <div style="margin-top:20px;">
+          <img src="./img/ahorroDiario.jpg" alt="ahorroimg" style="width:400px"></img>
           </div>
         </div>
         
