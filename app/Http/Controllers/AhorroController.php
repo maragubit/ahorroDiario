@@ -35,7 +35,7 @@ class AhorroController extends Controller
     
     
     public function delete(Ahorro $ahorro){
-        $this->authorize('autorizacion',$ahorro);
+        $this->authorize('delete',$ahorro);
         $ahorro->delete();
         return redirect()->route('ahorros.index');
     }

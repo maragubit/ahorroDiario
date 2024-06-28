@@ -9,8 +9,8 @@ use App\Models\IngresoFijo;
 class IngresoFijoController extends Controller
 {
     public function list(){
-
-        $ingresosfijos=IngresoFijo::all();
+        $user=auth()->user()->id;
+        $ingresosfijos=IngresoFijo::where('user_id',$user)->get();
         return view('ingresosFijos.list')->with('ingresosFijos',$ingresosfijos);
     }
 
@@ -41,7 +41,7 @@ class IngresoFijoController extends Controller
         $concepto=$request->get('concepto');
         $cantidad=$request->get('cantidad');
         $user_id=auth()->user()->id;
-        $this->authorize('autorizacion',$ingreso);
+        $this->authorize('update',$ingreso);
         $ingreso->update([
             'user_id'=>$user_id,
             'concepto'=>$concepto,
@@ -52,7 +52,7 @@ class IngresoFijoController extends Controller
     }
 
     public function delete(IngresoFijo $ingreso){
-        $this->authorize('autorizacion',$ingreso);
+        $this->authorize('delete',$ingreso);
         $ingreso->delete();
         return redirect()->route('ingresosFijos.list');
     }

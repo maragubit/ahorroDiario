@@ -52,7 +52,7 @@ class GastoController extends Controller
         $cantidad=$request->get('cantidad');
         $fecha=$request->get('fecha');
         $user_id=auth()->user()->id;
-        $this->authorize('autorizacion',$gasto);
+        $this->authorize('update',$gasto);
         $gasto->update([
             'user_id'=>$user_id,
             'concepto'=>$concepto,
@@ -64,7 +64,7 @@ class GastoController extends Controller
     }
 
     public function delete(Gasto $gasto){
-        $this->authorize('autorizacion',$gasto);
+        $this->authorize('delete',$gasto);
         $gasto->delete();
         return redirect()->route('dashboard');
     }

@@ -52,7 +52,7 @@ class IngresoController extends Controller
         $cantidad=$request->get('cantidad');
         $fecha=$request->get('fecha');
         $user_id=auth()->user()->id;
-        $this->authorize('autorizacion',$ingreso);
+        $this->authorize('update',$ingreso);
         $ingreso->update([
             'user_id'=>$user_id,
             'concepto'=>$concepto,
@@ -64,7 +64,7 @@ class IngresoController extends Controller
     }
 
     public function delete(Ingreso $ingreso){
-        $this->authorize('autorizacion',$ingreso);
+        $this->authorize('delete',$ingreso);
         $ingreso->delete();
         return redirect()->route('dashboard');
     }

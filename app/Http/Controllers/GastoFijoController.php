@@ -9,7 +9,8 @@ class GastoFijoController extends Controller
 {
     public function list(){
 
-        $gastosfijos=GastoFijo::all();
+        $user=auth()->user()->id;
+        $gastosfijos=GastoFijo::where('user_id',$user)->get();
         return view('gastosFijos.list')->with('gastosFijos',$gastosfijos);
     }
 
@@ -40,7 +41,7 @@ class GastoFijoController extends Controller
         $concepto=$request->get('concepto');
         $cantidad=$request->get('cantidad');
         $user_id=auth()->user()->id;
-        $this->authorize('autorizacion',$gasto);
+        $this->authorize('update',$gasto);
         $gasto->update([
             'user_id'=>$user_id,
             'concepto'=>$concepto,
@@ -51,7 +52,7 @@ class GastoFijoController extends Controller
     }
 
     public function delete(GastoFijo $gasto){
-        $this->authorize('autorizacion',$gasto);
+        $this->authorize('delete',$gasto);
         $gasto->delete();
         return redirect()->route('gastosFijos.list');
     }
