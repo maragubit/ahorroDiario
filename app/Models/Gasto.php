@@ -10,6 +10,12 @@ class Gasto extends Model
 {
     use HasFactory;
     protected $table="gasto";
+    protected $fillable = [
+        'user_id',
+        'concepto',
+        'cantidad',
+        'created_at',
+    ];
     
     //RELACION CON MODELOS
 

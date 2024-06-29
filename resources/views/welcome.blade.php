@@ -37,7 +37,7 @@
             @endif
           
         <div style="margin-top:20px;">
-          <img src="./img/ahorroDiario.jpg" alt="ahorroimg" style="width:400px"></img>
+          <img src="./img/AhorroDiario.jpg" alt="ahorroimg" style="width:400px"></img>
           </div>
         </div>
         
